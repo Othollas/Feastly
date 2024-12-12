@@ -10,6 +10,9 @@ app.use(express.json());
 
 app.use('/api', apiRoutes);
 
+app.get('/', (req, res) => {
+  res.send('Backend déployé avec succès avec server.js !');
+});
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

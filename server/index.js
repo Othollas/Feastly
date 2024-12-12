@@ -21,6 +21,10 @@ const db = mysql.createConnection({
 });
 
 // Route pour enregistrer les revervations 
+app.get('/', (req, res) => {
+    res.send('Backend déployé avec succès avec index.js !');
+  });
+
 
 app.post("./reservation", (req, res) => {
     const { name, nb_adulte, nb_enfant, restaurant_choices} = req.body;
