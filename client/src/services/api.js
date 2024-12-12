@@ -1,7 +1,7 @@
 // services/api.js
 export const updateParticipantInDatabase = async (table, id, updateData) => {
   try {
-    const response = await fetch(`https://feastly-server2/${table}/${id}`, {
+    const response = await fetch(`https://feastly-server2.vercel.app/${table}/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +22,7 @@ export const updateParticipantInDatabase = async (table, id, updateData) => {
 
 export const updateCheckbox = async (table, id, restaurant, data) => {
   try {
-    const response = await fetch(`https://feastly-server2/${table}/${id}/${restaurant}`, {
+    const response = await fetch(`https://feastly-server2.vercel.app/${table}/${id}/${restaurant}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ export const updateCheckbox = async (table, id, restaurant, data) => {
 
 export const fetchCheckboxData = async (table, id) => {
   try {
-    const response = await fetch(`https://feastly-server2/${table}/${id}`, {
+    const response = await fetch(`https://feastly-server2.vercel.app/${table}/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ export const fetchCheckboxData = async (table, id) => {
 
 export const fetchGuestData = async (table, id) => {
   try {
-    const response = await fetch(`https://feastly-server2/${table}/${id}`, {
+    const response = await fetch(`https://feastly-server2.vercel.app/${table}/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
