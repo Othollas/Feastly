@@ -1,0 +1,45 @@
+
+
+
+  .button {
+    display: inline-block;
+    padding: 10px;
+    font-size: 2.5rem;
+  }
+  
+.button::-ms-value{
+  font-size: 2.5rem;
+}
+
+
+  .glassButton {
+    all: unset; /* Supprime le style natif des boutons */
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    text-align: center;
+    border-radius: 12px;
+    cursor: pointer;
+    position: relative;
+  
+    /* Glassmorphism effect */
+    background: rgba(255, 255, 255, 0.2); /* Transparence */
+    backdrop-filter: blur(8px); /* Blur */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtile bordure */
+    color: #ffffff; /* Couleur du texte */
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2); /* Ombre douce */
+    transition: all 0.3s ease;
+  }
+  
+  .glassButton:hover {
+    background: rgba(255, 255, 255, 0.4); /* Accentuer la transparence au hover */
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.3); /* Accentuer l'ombre au hover */
+    transform: scale(1.05); /* Légère mise en avant */
+  }
+  
+  .glassButton:active {
+    transform: scale(0.98); /* Légère réduction sur clic */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3); /* Réduction de l'ombre */
+  }
+  

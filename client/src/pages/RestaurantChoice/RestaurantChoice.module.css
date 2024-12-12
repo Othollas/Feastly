@@ -1,0 +1,13 @@
+.container {
+    h3{
+        font-family: italic;
+        letter-spacing: 2px;
+        
+        color: white;
+        margin: 5rem;
+        text-align: center;
+    }
+    div {
+        margin: 2rem 0;
+    }
+}
