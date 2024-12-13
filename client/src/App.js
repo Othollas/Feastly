@@ -24,7 +24,7 @@ const handleNameClick = (name) => {
       {currentPage === "home" && <Home onNavigate={navigateTo}/>}
       {currentPage === "selection" && selectedName === "" && <Selection onNavigate={navigateTo} selectedName={selectedName} onNameClick={handleNameClick} />}
       {currentPage === "restaurantChoice" && <RestaurantChoice onNavigate={navigateTo} name={selectedName} /> }
-      {currentPage === "selectionGuest" && <SelectionGuest onNavigate={navigateTo} name={selectedName} selectedName={selectedName}/>}
+      {currentPage === "selectionGuest" && <SelectionGuest onNavigate={navigateTo} name={selectedName} selectedName={selectedName} onNameClick={handleNameClick} />}
       {currentPage === "admin" && <Admin onNavigate={navigateTo}/>}
     </div>
   );

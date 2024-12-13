@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import Button from '../../component/Button/Button';
 import { fetchGuestData, updateParticipantInDatabase } from '../../services/api';
 import styles from './SelectionGuest.module.css'
-
-const SelectionGuest = ({ onNavigate, name }) => {
+import style from '../../component/Button/Button.module.css'
+import Footer from '../../component/Footer/Footer';
+const SelectionGuest = ({ onNavigate, name, selectedName, onNameClick }) => {
   const table = 'restaurants';
   const [userData, setUserData] = useState({ nb_adulte: 1, nb_enfant: 0 });
 
@@ -86,8 +87,16 @@ const SelectionGuest = ({ onNavigate, name }) => {
       {/* Bouton pour naviguer */}
       <Button
         onNavigate={onNavigate}
+        className={style.glassButton}
         page="restaurantChoice"
         name="Passer au choix du restaurant"
+      />
+
+      <Footer
+      name="Revenir à la page precedente"
+      page="selection"
+      onNavigate={onNavigate}
+      setName={onNameClick}
       />
     </div>
   );
