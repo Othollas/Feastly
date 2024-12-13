@@ -10,7 +10,10 @@ const Selection = ({ onNavigate, onNameClick, selectedName }) => {
 
   // Démarre l'animation après le montage du composant
   useEffect(() => {
-    setIsAnimating(true);
+    const timer = setTimeout(() => {
+      setIsAnimating(true);
+    }, 50); // Petit délai pour que les styles CSS s'appliquent
+    return () => clearTimeout(timer); // Nettoyage si le composant est démonté
   }, []);
 
   return (
@@ -21,7 +24,7 @@ const Selection = ({ onNavigate, onNameClick, selectedName }) => {
         return(
           <Button 
           className={`${styles.glassButton} ${
-            isAnimating ? stylesDisplay.animatedBtn : ''
+            isAnimating ? stylesDisplay.animatedBtn : stylesDisplay.hiddenBtn
           }`}
           key={guest}
           name={guest}
