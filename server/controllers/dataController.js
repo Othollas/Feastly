@@ -77,8 +77,9 @@ const DataController = {
       res.status(500).json({ error: 'Failed to insert data' });
     }
   },
-
 };
+
+
 
 
 module.exports = DataController;

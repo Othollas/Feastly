@@ -4,10 +4,11 @@ import { fetchCheckboxData, updateCheckbox } from '../../services/api';
 // import styles from './RestaurantChoice.module.css'
 import { restaurantList } from '../../data/restaurant';
 import styles from './RestaurantChoice.module.css'
+import Footer from '../../component/Footer/Footer';
 
 
 
-const RestaurantChoice = ({ name }) => {
+const RestaurantChoice = ({ name, onNavigate, onNameClick }) => {
   const [checkboxStates, setCheckboxStates] = useState({}); // État global pour les checkboxes
   const table = 'restaurants';
 
@@ -19,11 +20,10 @@ const RestaurantChoice = ({ name }) => {
         
         const formattedCheckboxStates = Object.fromEntries(
           Object.entries(response)
-            .filter(([key]) => !['id', 'name', 'nb_adulte', 'nb_enfant'].includes(key)) // Exclure les non-restaurants
-            .map(([key, value]) => [key, value === 1]) // Transformer tinyInt (1/0) en boolean
+            .filter(([keys]) => !['id', 'name', 'nb_adulte', 'nb_enfant'].includes(keys)) // Exclure les non-restaurants
+            .map(([keys, value]) => [keys, value === 1]) // Transformer tinyInt (1/0) en boolean
         );
 
-console.log(formattedCheckboxStates)
 
         setCheckboxStates(formattedCheckboxStates); // Mettre à jour l'état
       } catch (error) {
@@ -68,6 +68,13 @@ console.log(formattedCheckboxStates)
         />
         </div>
       ))}
+      
+      <Footer
+      name="Aller aux resultats"
+      page="resultat"
+      onNavigate={onNavigate}
+      setName={onNameClick}
+      />
     </div>
   );
 };

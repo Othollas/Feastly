@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Button from '../../component/Button/Button'
 import styles from '../../component/Button/Button.module.css'
 import stylesDisplay from './Selection.module.css'
+import Footer from '../../component/Footer/Footer'
 
 const Selection = ({ onNavigate, onNameClick, selectedName }) => {
   const data = ["Sancho", "Timal", "Arno", "Richard", "Yannou", "Fabien", "Olivier"]
@@ -37,6 +38,12 @@ const Selection = ({ onNavigate, onNameClick, selectedName }) => {
         )
       })}
       </div>
+      <Footer
+      name="Aller aux resultats"
+      page="resultat"
+      onNavigate={onNavigate}
+      setName={onNameClick}
+      />
     </div>
   )
 }

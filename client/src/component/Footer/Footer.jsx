@@ -3,11 +3,11 @@ import styles from './Footer.module.css'
 
 const Footer = ({ onNavigate, page, name, setName}) => {
     
-    
+
 
   return (
     <div className={styles.display}>
-        <p
+        <p className='footer'
               onClick={() => {
                 setName("")
                 onNavigate(page)
