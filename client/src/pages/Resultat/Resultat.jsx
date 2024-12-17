@@ -80,7 +80,6 @@ const Resultat = ({ onNameClick, onNavigate }) => {
 
             <div className={styles.resultatRestaurant}>
                 <h2>resultat Restaurant </h2>
-
                 <p>Oceanique : <b>{pourcentage(total_oceanique)}</b></p>
                 <p>Buffalo Grill : <b>{pourcentage(total_buffalo)}</b></p>
                 <p>Ginza : <b>{pourcentage(total_ginza)}</b></p>

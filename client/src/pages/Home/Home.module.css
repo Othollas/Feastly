@@ -1,20 +1,9 @@
-html {
-  height: -webkit-fill-available;
-  margin: 0;
-  padding: 0;
-  height: 100svh;
-}
-
-
-
-
-#home{
-    height: 100vh;
-    padding-top: 10rem;
-    button{
-      padding-bottom: 20rem;
-    }
-   
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  outline: calc(var(--debug) * 1px) dotted red;
+  outline-offset: -1px;
 }
 
 #title{
@@ -22,8 +11,178 @@ html {
     width: 100%;
     color: white;
     font-size: 3rem;
-    padding-bottom: 15rem;
 }
+
+.main {
+  height: 100svh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+
+  & button {
+    all: unset;
+    background: transparent;
+    border-width: 0;
+    transform: scale(var(--btn-scale));
+    transition: 
+        --bg-position 3s ease, 
+        --after-blur 0.3s ease,
+        --before-opacity 0.3s ease,
+        --btn-offset 0.3s ease,
+        --btn-scale 0.2s cubic-bezier(.76,-0.25,.51,1.13);
+
+    > div {
+      display: block;
+      padding: 0.8em 1.2em;
+      background: var(--btn-bg);
+      color: white;
+      font-weight: bold;
+      border-radius: 8px;
+      font-size: 22px;
+      position: relative;
+      
+      cursor: pointer;
+
+      &:not(:hover) {
+        transition: --after-blur 0.3s ease;
+      }
+
+      > span {
+        background: linear-gradient(
+            to right,
+            var(--color-white),
+            var(--color-white),
+            var(--color-cyan),
+            var(--color-blue),
+            var(--color-purple),
+            var(--color-pink),
+            var(--color-red),
+            var(--color-yellow),
+            var(--color-lime),
+            var(--color-white),
+            var(--color-white)
+          )
+          no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        letter-spacing: 0.15ch;
+        font-weight: 600;
+      }
+
+      &:after {
+        display: block;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: var(--after-bg) no-repeat calc(var(--bg-position) * 1%) 0% /
+          900%;
+        transform: translateY(calc(var(--after-pos-y) * 1px));
+        left: 0;
+        top: 0;
+        z-index: -2;
+        filter: blur(calc(var(--after-blur) * 1px));
+        opacity: var(--after-opacity);
+      }
+
+      &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
+        height: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
+        background: linear-gradient(
+            to right,
+            var(--color-white),
+            var(--color-white),
+            var(--color-cyan),
+            var(--color-blue),
+            var(--color-purple),
+            var(--color-pink),
+            var(--color-red),
+            var(--color-yellow),
+            var(--color-lime),
+            var(--color-white),
+            var(--color-white)
+          )
+          no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
+        border-radius: 9px;
+        z-index: -1;
+        top: calc(var(--btn-border-width) * -1px);
+        left: calc(var(--btn-border-width) * -1px);
+        opacity: var(--before-opacity);
+      }
+    }
+
+    &:hover {
+      --btn-scale: 1.05;
+      --bg-position: 0;
+      --after-bg: linear-gradient(
+          to right,
+          var(--color-white),
+          var(--color-white),
+          var(--color-cyan),
+          var(--color-blue),
+          var(--color-purple),
+          var(--color-pink),
+          var(--color-red),
+          var(--color-yellow),
+          var(--color-lime),
+          var(--color-white),
+          var(--color-white)
+        );
+        --after-blur: 30;
+        --after-opacity: 0.3;
+        --after-pos-y: 0;
+        --before-opacity: 1;      
+        --btn-offset: 5;
+      
+      &:active {
+        --btn-scale: 0.98;
+        --after-blur: 15;
+      }
+    }
+  }
+}
+
+/* Classe pour le texte avec un contour animé */
+.gradientStroke {
+  position: fixed;
+  top: 50px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: transparent;
+  -webkit-text-stroke: 2px transparent;
+  background: linear-gradient(
+    to right,
+    var(--color-white, #ffffff),
+    var(--color-cyan, #00ffff),
+    var(--color-blue, #0000ff),
+    var(--color-purple, #800080),
+    var(--color-pink, #ff69b4),
+    var(--color-red, #ff0000),
+    var(--color-yellow, #ffff00),
+    var(--color-lime, #00ff00),
+    var(--color-white, #ffffff)
+  );
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  animation: strokeGradient 3s linear infinite;
+}
+
+  /* Animation pour le dégradé */
+  @keyframes outlineGradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
 
 
   @layer properties {
@@ -60,147 +219,6 @@ html {
   }
   
 
-  
-  *,
-  *:before,
-  *:after {
-    box-sizing: border-box;
-    outline: calc(var(--debug) * 1px) dotted red;
-    outline-offset: -1px;
-  }
-  
-  
-  .main {
-    display: grid;
-    place-items: center;
-  
-    & button {
-      all: unset;
-      background: transparent;
-      border-width: 0;
-      transform: scale(var(--btn-scale));
-      transition: 
-          --bg-position 3s ease, 
-          --after-blur 0.3s ease,
-          --before-opacity 0.3s ease,
-          --btn-offset 0.3s ease,
-          --btn-scale 0.2s cubic-bezier(.76,-0.25,.51,1.13);
-  
-      > div {
-        display: block;
-        padding: 0.8em 1.2em;
-        background: var(--btn-bg);
-        color: white;
-        font-weight: bold;
-        border-radius: 8px;
-        font-size: 22px;
-        position: relative;
-        
-        cursor: pointer;
-  
-        &:not(:hover) {
-          transition: --after-blur 0.3s ease;
-        }
-  
-        > span {
-          background: linear-gradient(
-              to right,
-              var(--color-white),
-              var(--color-white),
-              var(--color-cyan),
-              var(--color-blue),
-              var(--color-purple),
-              var(--color-pink),
-              var(--color-red),
-              var(--color-yellow),
-              var(--color-lime),
-              var(--color-white),
-              var(--color-white)
-            )
-            no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          letter-spacing: 0.15ch;
-          font-weight: 600;
-        }
-  
-        &:after {
-          display: block;
-          position: absolute;
-          content: "";
-          width: 100%;
-          height: 100%;
-          background: var(--after-bg) no-repeat calc(var(--bg-position) * 1%) 0% /
-            900%;
-          transform: translateY(calc(var(--after-pos-y) * 1px));
-          left: 0;
-          top: 0;
-          z-index: -2;
-          filter: blur(calc(var(--after-blur) * 1px));
-          opacity: var(--after-opacity);
-        }
-  
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
-          height: calc(100% + calc(calc(var(--btn-border-width) * 2) * 1px));
-          background: linear-gradient(
-              to right,
-              var(--color-white),
-              var(--color-white),
-              var(--color-cyan),
-              var(--color-blue),
-              var(--color-purple),
-              var(--color-pink),
-              var(--color-red),
-              var(--color-yellow),
-              var(--color-lime),
-              var(--color-white),
-              var(--color-white)
-            )
-            no-repeat calc(var(--bg-position) * 1%) 0% / 900%;
-          border-radius: 9px;
-          z-index: -1;
-          top: calc(var(--btn-border-width) * -1px);
-          left: calc(var(--btn-border-width) * -1px);
-          opacity: var(--before-opacity);
-        }
-      }
-  
-      &:hover {
-        --btn-scale: 1.05;
-        --bg-position: 0;
-        --after-bg: linear-gradient(
-            to right,
-            var(--color-white),
-            var(--color-white),
-            var(--color-cyan),
-            var(--color-blue),
-            var(--color-purple),
-            var(--color-pink),
-            var(--color-red),
-            var(--color-yellow),
-            var(--color-lime),
-            var(--color-white),
-            var(--color-white)
-          );
-          --after-blur: 30;
-          --after-opacity: 0.3;
-          --after-pos-y: 0;
-          --before-opacity: 1;      
-          --btn-offset: 5;
-        
-        &:active {
-          --btn-scale: 0.98;
-          --after-blur: 15;
-        }
-      }
-    }
-  }
-  
-
 /* Animation pour le dégradé */
 @keyframes strokeGradient {
   0% {
@@ -214,58 +232,15 @@ html {
   }
 }
 
-/* Animation pour le dégradé */
-@keyframes strokeGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-/* Classe pour le texte avec un contour animé */
-.gradientStroke {
-  font-size: 2rem;
-  font-weight: bold;
-  color: transparent;
-  -webkit-text-stroke: 2px transparent;
-  background: linear-gradient(
-    to right,
-    var(--color-white, #ffffff),
-    var(--color-cyan, #00ffff),
-    var(--color-blue, #0000ff),
-    var(--color-purple, #800080),
-    var(--color-pink, #ff69b4),
-    var(--color-red, #ff0000),
-    var(--color-yellow, #ffff00),
-    var(--color-lime, #00ff00),
-    var(--color-white, #ffffff)
-  );
-  background-size: 200% 200%;
-  -webkit-background-clip: text;
-  animation: strokeGradient 3s linear infinite;
-}
 
 
-  /* Animation pour le dégradé */
-@keyframes outlineGradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
+
+
 
 /* Classe pour le texte avec un contour animé */
 .gradientOutline {
+  position: fixed;
+  bottom: 50px;
   font-size: 2rem;
   font-weight: bold;
   color: transparent;

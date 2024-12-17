@@ -52,7 +52,7 @@ const RestaurantChoice = ({ name, onNavigate, onNameClick }) => {
     <div className={styles.container}>
       <h3>" Vous pouvez choisir 1 fois 1 restau, mais vous ne pouvez pas choisir 1000 restau 1000 fois "</h3>
       {restaurantList.map((restaurant, index) => (
-        <div className='containerCard'>
+        <div className={styles.containerCard}>
         <Card
           key={restaurant.name}
           id={`checkbox${index}`}

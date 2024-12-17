@@ -1,23 +1,25 @@
 .resultat {
     color: white;
-.resultatRestaurant, .resultatPersonne{
-    h2 {
-        text-transform: capitalize;
-        color: rgb(255, 255, 255);
-        text-align: center;
-        margin: 2rem 0;
-        text-shadow: 2px 2px 2px grey;
-    }
-    p {
-        margin: 1rem 0;
-        text-transform: capitalize;
-        font-style: oblique;
-    }
 
-    b {
-        color: rgb(254, 255, 254);
-        text-shadow: 1px 1px 5px rgb(128, 162, 89);
+    .resultatRestaurant,
+    .resultatPersonne {
+        h2 {
+            text-transform: capitalize;
+            color: rgb(255, 255, 255);
+            text-align: center;
+            margin: 2rem 0;
+            text-shadow: 2px 2px 2px grey;
+        }
+
+        p {
+            margin: 1rem 0;
+            text-transform: capitalize;
+            font-style: oblique;
+        }
+
+        b {
+            color: rgb(254, 255, 254);
+            text-shadow: 1px 1px 5px rgb(128, 162, 89);
+        }
     }
-}
-    
 }
