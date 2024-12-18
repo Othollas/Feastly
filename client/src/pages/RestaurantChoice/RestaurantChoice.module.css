@@ -4,10 +4,17 @@
         font-family: italic;
         letter-spacing: 2px;
         color: white;
-        margin: 5rem;
+        
         text-align: center;
     }
     div {
         padding: 2rem 0;
     }
+}
+
+.container_group{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
 }

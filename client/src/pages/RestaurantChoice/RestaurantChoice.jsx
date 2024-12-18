@@ -51,8 +51,9 @@ const RestaurantChoice = ({ name, onNavigate, onNameClick }) => {
   return (
     <div className={styles.container}>
       <h3>" Vous pouvez choisir 1 fois 1 restau, mais vous ne pouvez pas choisir 1000 restau 1000 fois "</h3>
+      <div className={styles.container_group}>
       {restaurantList.map((restaurant, index) => (
-        <div className={styles.containerCard}>
+        
         <Card
           key={restaurant.name}
           id={`checkbox${index}`}
@@ -66,15 +67,15 @@ const RestaurantChoice = ({ name, onNavigate, onNameClick }) => {
           isChecked={checkboxStates[restaurant.db_name] || false} // État initial
           onCheckboxChange={(newCheckedState) => handleCheckboxUpdate(restaurant.db_name, newCheckedState)} // Callback
         />
-        </div>
+       
       ))}
-      
-      <Footer
+       </div>
+      {/* <Footer
       name="Aller aux resultats"
       page="resultat"
       onNavigate={onNavigate}
       setName={onNameClick}
-      />
+      /> */}
     </div>
   );
 };
