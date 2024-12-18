@@ -1,41 +1,96 @@
-h1{
+.container {
+  h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
     text-align: center;
     color: white;
+    padding: 5rem 0;
+  }
 }
 
-.display{
-    margin-top: 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    input{
-        width: 15rem;
-        font-size: 2.5rem;
-    }
+.display {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  
+  input {   
+    width: 10rem;
+    font-size: 2rem;
+  }
 }
+
+.display > div{
+
+
+}
+
+
+
+@media (max-width: 480px) {
+
+  .container {
+    h1 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 2px grey;
+      text-align: center;
+      color: white;
+      padding: 5rem 0;
+    }
+  }
+
+  .display {
+    display: flex;
+    text-align: center;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    input {   
+      width: 5rem;
+      font-stretch: condensed;
+      font-size: 2rem;
+    }
+  }
+  
+  .display > div{
+  flex-basis: 45%;
+  width: 45%;
+  }
+}
+
+
 
 @keyframes slideInBounce {
-    0% {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
-    80% {
-      transform: translateX(0) scale(1.1);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translateX(0) scale(1);
-      opacity: 1;
-    }
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
   }
-  
-  .hiddenBtn {
-    opacity: 0; /* Caché */
-    transform: translateX(-100%); /* Hors écran */
+
+  80% {
+    transform: translateX(0) scale(1.1);
+    opacity: 0.8;
   }
- 
-  .animatedBtn {
-    animation: slideInBounce 0.8s cubic-bezier(0.25, 1.3, 0.6, 1.2) forwards;
-    opacity: 0; /* Défini à 0 avant animation */
+
+  100% {
+    transform: translateX(0) scale(1);
+    opacity: 1;
   }
-  
+}
+
+.hiddenBtn {
+  opacity: 0;
+  /* Caché */
+  transform: translateX(-100%);
+  /* Hors écran */
+}
+
+.animatedBtn {
+  animation: slideInBounce 0.8s cubic-bezier(0.25, 1.3, 0.6, 1.2) forwards;
+  opacity: 0;
+  /* Défini à 0 avant animation */
+}

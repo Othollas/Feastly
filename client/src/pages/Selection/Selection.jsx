@@ -18,7 +18,7 @@ const Selection = ({ onNavigate, onNameClick, selectedName }) => {
   }, []);
 
   return (
-    <div>
+    <div className={stylesDisplay.container}>
       <h1>Qui es tu jeune entrepreneur ?</h1>
       <div className={stylesDisplay.display}>
       {data.map((guest, index)=>{
